@@ -1,0 +1,13 @@
+VFD=../mtximage
+
+echo --------------------- make u1 -----------------------
+bcc -c -ansi u1.c
+as86 -o u.o u.s
+ld86 -o u1 u.o u1.o ../mtxlib /usr/lib/bcc/libc.a
+
+sudo mount -o loop $VFD /mnt
+sudo cp u1 /mnt/bin/u1
+sudo umount /mnt
+
+rm *.o u1
+echo done u1

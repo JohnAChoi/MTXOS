@@ -1,0 +1,6 @@
+#! /bin/sh
+
+as86 -o ts.o ts.s
+bcc -c -ansi t.c
+ld86 -d -o mtx ts.o t.o /usr/lib/bcc/libc.a
+
